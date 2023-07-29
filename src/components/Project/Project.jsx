@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { deleteProject } from "../../redux/features/projectSlice";
 import AddProjectForm from "../Forms/AddProjectForm";
 import Modal from "../ui/Modal";
+import moment from "moment";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -23,6 +24,14 @@ export default function Project({ project }) {
   const handleDelete = () => {
     dispatch(deleteProject(project.id));
   };
+  // Convert the dueDate to a moment object
+  const dueDateMoment = moment(project.dueDate);
+
+  // Get the current date as a moment object
+  const currentDate = moment();
+
+  // Compare the dueDate with the current date
+  const isPastDue = dueDateMoment.isBefore(currentDate);
   return (
     <>
       <div
@@ -119,7 +128,15 @@ export default function Project({ project }) {
                 />
               </svg>
               <span className="ml-1 leading-none">
-                Time Left: <Moment durationFromNow>{project?.dueDate}</Moment>
+                {isPastDue ? (
+                  <Moment format="DD-MM-YY" className="text-red-500">
+                    {project?.dueDate}
+                  </Moment>
+                ) : (
+                  <span>
+                    Ends <Moment fromNow>{project?.dueDate}</Moment>
+                  </span>
+                )}
               </span>
             </div>
           </div>

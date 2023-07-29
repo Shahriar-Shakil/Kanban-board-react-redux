@@ -7,6 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addProject, editProject } from "../../redux/features/projectSlice";
 import { selectUser } from "../../redux/features/selectors";
+import dayjs from "dayjs";
 
 export default function AddProjectForm({ project, title, setModalOpen }) {
   const {
@@ -20,6 +21,7 @@ export default function AddProjectForm({ project, title, setModalOpen }) {
   const users = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  // if works when edit existing Project
   useEffect(() => {
     if (project) {
       reset(project);
@@ -35,6 +37,7 @@ export default function AddProjectForm({ project, title, setModalOpen }) {
     };
 
     if (project?.id) {
+      // edit
       dispatch(
         editProject({
           id: project.id, // The project ID you want to update
@@ -44,6 +47,7 @@ export default function AddProjectForm({ project, title, setModalOpen }) {
         })
       );
     } else {
+      // add new
       dispatch(addProject(params));
     }
 
@@ -115,15 +119,13 @@ export default function AddProjectForm({ project, title, setModalOpen }) {
                 rules={{ required: true }}
                 render={({ field }) => (
                   <DatePicker
+                    defaultValue={dayjs(field.value)} // DatePicker accepts a moment object
                     style={{
                       width: "100%",
                     }}
                     onChange={(_, dateString) => {
                       field.onChange(dateString); // No need of a state
                     }}
-                    disabledDate={(current) =>
-                      current && current < moment().endOf("day")
-                    }
                   />
                 )}
               />

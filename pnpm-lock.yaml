@@ -32,6 +32,9 @@ dependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.27)
+  dayjs:
+    specifier: ^1.11.9
+    version: 1.11.9
   moment:
     specifier: ^2.29.4
     version: 2.29.4
