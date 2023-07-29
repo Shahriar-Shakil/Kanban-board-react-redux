@@ -27,9 +27,7 @@ export default function ProjectGrid() {
   if (projects.length === 0) {
     content = (
       <>
-        <p className="text-gray-500 px-10 mt-6">
-          No Task found! You can add if you have users
-        </p>
+        <p className="text-gray-500 px-10 mt-6">No Task found!</p>
         <div className="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
           <ProjectList title="todo" />
           <ProjectList title="doing" />

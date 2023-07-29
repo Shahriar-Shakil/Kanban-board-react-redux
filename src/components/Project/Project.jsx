@@ -32,11 +32,9 @@ export default function Project({ project }) {
         style={{ display: isDragging ? "none" : "flex" }}
       >
         <div className="flex justify-between items-start w-full">
-          <div>
-            <h3 className="flex items-center text-black h-6 px-3 text-base font-semibold  text-white rounded-full capitalize">
-              {project?.title}
-            </h3>
-          </div>
+          <h3 className="flex items-center text-black h-6 px-3 text-base font-semibold  text-white rounded-full capitalize">
+            {project?.title}
+          </h3>
 
           <Menu as="div" className="relative inline-block text-left">
             <div>
