@@ -32,7 +32,7 @@ export default function Project({ project }) {
         style={{ display: isDragging ? "none" : "flex" }}
       >
         <div className="flex justify-between items-start w-full">
-          <h3 className="flex items-center text-black h-6 px-3 text-base font-semibold  text-white rounded-full capitalize">
+          <h3 className="  text-black h-6 px-3 text-base font-semibold  rounded-full capitalize">
             {project?.title}
           </h3>
 
