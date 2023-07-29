@@ -65,6 +65,9 @@ dependencies:
   react-scripts:
     specifier: 5.0.1
     version: 5.0.1(@babel/plugin-syntax-flow@7.22.5)(@babel/plugin-transform-react-jsx@7.22.5)(eslint@8.46.0)(react@18.2.0)(typescript@5.1.6)
+  redux-persist:
+    specifier: ^6.0.0
+    version: 6.0.0(react@18.2.0)(redux@4.2.1)
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -9696,6 +9699,19 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+    dev: false
+
+  /redux-persist@6.0.0(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      redux: 4.2.1
     dev: false
 
   /redux-thunk@2.4.2(redux@4.2.1):

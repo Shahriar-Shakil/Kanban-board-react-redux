@@ -1,12 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
-import usersReducer from "./features/usersSlice";
-import projectsReducer from "./features/projectSlice";
-const store = configureStore({
-  reducer: {
-    users: usersReducer,
-    projects: projectsReducer,
-  },
-  devTools: process.env.NODE_ENV !== "production",
-});
+import { configurePersistStore } from "./persistStore";
 
+export const { store, persistor } = configurePersistStore();
 export default store;
