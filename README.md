@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Kanban Board App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Kanban board application built with React DND (Drag and Drop) and Redux Toolkit. The app allows users to efficiently manage tasks and visualize work progress using a Kanban board layout.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Drag and drop tasks between different lists representing different stages of tasks (e.g., "To Do," "In Progress," "Done").
+- Add tasks to any list with a title, description, and due date.
+- Edit existing tasks to modify their title, description, or due date.
+- Delete tasks from any list.
+- Create users from the User page. By default, two demo users are already added to the app.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+git clone https://github.com/Shahriar-Shakil/Kanban-board-react-redux.git
 
-### `npm test`
+2. Change into the project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd Kanban-board-react-redux
 
-### `npm run build`
+3. Install the dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Run the development server:
 
-### `npm run eject`
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Open your browser and go to http://localhost:3000 to access the Kanban board app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Live Demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You can also try the live version of the Kanban board app by visiting the following link:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[https://kanban-board-react-redux.netlify.app/](https://kanban-board-react-redux.netlify.app/)
 
-## Learn More
+## Persistence
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The Redux store is persisted to the local storage, which means that the app's state will be saved even after the page is refreshed. If any issues occur or if you want to start the app from its initial state, you can clear the local storage.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authentication
 
-### Code Splitting
+This app does not require authentication. Users can directly access the Kanban board and manage tasks without the need for login credentials.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Acknowledgments
 
-### Analyzing the Bundle Size
+This project was created using Create React App and the following libraries:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React DND (Drag and Drop) for managing the task movement on the Kanban board.
+- Redux Toolkit for state management.
