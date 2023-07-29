@@ -4,7 +4,7 @@ This project is a Kanban board application built with React DND (Drag and Drop) 
 
 ## Features
 
-- Drag and drop tasks between different lists representing different stages of tasks (e.g., "To Do," "In Progress," "Done").
+- Drag and drop tasks between different lists representing different stages .
 - Add tasks to any list with a title, description, and due date.
 - Edit existing tasks to modify their title, description, or due date.
 - Delete tasks from any list.
@@ -14,21 +14,21 @@ This project is a Kanban board application built with React DND (Drag and Drop) 
 
 1. Clone the repository:
 
-git clone https://github.com/Shahriar-Shakil/Kanban-board-react-redux.git
+### `git clone https://github.com/Shahriar-Shakil/Kanban-board-react-redux.git`
 
 2. Change into the project directory:
 
-cd Kanban-board-react-redux
+### `cd Kanban-board-react-redux`
 
 3. Install the dependencies:
 
-npm install
+### `npm install`
 
 ## Usage
 
 1. Run the development server:
 
-npm start
+### `npm start`
 
 2. Open your browser and go to http://localhost:3000 to access the Kanban board app.
 
