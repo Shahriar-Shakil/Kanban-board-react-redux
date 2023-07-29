@@ -5,6 +5,7 @@ import { selectProject } from "../../redux/features/selectors";
 
 export default function ProjectGrid() {
   const projects = useSelector(selectProject);
+
   // backlog filter
   const filterByBacklog = (project) => project?.stage?.toLowerCase() === "todo";
 

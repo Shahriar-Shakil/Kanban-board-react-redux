@@ -1,38 +1,52 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
-import { Select } from "antd";
-import React, { useEffect, useState } from "react";
+import { DatePicker, Select } from "antd";
+import moment from "moment";
+import React, { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { addProject, editProject } from "../../redux/features/projectSlice";
 import { selectUser } from "../../redux/features/selectors";
-import { DatePicker } from "antd";
-import moment from "moment";
-import { addProject } from "../../redux/features/projectSlice";
 
-export default function AddProjectForm({ setModalOpen }) {
+export default function AddProjectForm({ project, title, setModalOpen }) {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
+    reset,
+    setValue,
   } = useForm();
   const users = useSelector(selectUser);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //     if (isSuccess) {
-  //         setModalOpen(false);
-  //     }
-  // }, [isSuccess, isError, setModalOpen]);
-  const onChangeTeams = (value) => {
-    // setTeamId(value);
-  };
+
+  useEffect(() => {
+    if (project) {
+      reset(project);
+      setValue("assign", project?.assign.id);
+    }
+  }, [project, reset, setValue]);
+
   const onSubmit = (data) => {
     const params = {
       ...data,
       assign: users.find((user) => user.id === data.assign),
-      stage: "todo",
+      stage: title?.toLowerCase(),
     };
-    dispatch(addProject(params));
+
+    if (project?.id) {
+      dispatch(
+        editProject({
+          id: project.id, // The project ID you want to update
+          updates: {
+            ...params,
+          },
+        })
+      );
+    } else {
+      dispatch(addProject(params));
+    }
+
     setModalOpen(false);
   };
   return (
