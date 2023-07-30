@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import { DatePicker, Select } from "antd";
-import moment from "moment";
+import dayjs from "dayjs";
 import React, { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addProject, editProject } from "../../redux/features/projectSlice";
 import { selectUser } from "../../redux/features/selectors";
-import dayjs from "dayjs";
 
 export default function AddProjectForm({ project, title, setModalOpen }) {
   const {
@@ -119,7 +118,10 @@ export default function AddProjectForm({ project, title, setModalOpen }) {
                 rules={{ required: true }}
                 render={({ field }) => (
                   <DatePicker
-                    defaultValue={dayjs(field.value)} // DatePicker accepts a moment object
+                    allowClear={false}
+                    defaultValue={
+                      project?.dueDate ? dayjs(project?.dueDate) : null
+                    }
                     style={{
                       width: "100%",
                     }}
