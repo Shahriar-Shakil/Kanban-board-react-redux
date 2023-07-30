@@ -10,7 +10,7 @@ export default function Layout({ children, page }) {
     <div className="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-400 via-gray-400 to-red-200">
       <div className="flex items-center flex-shrink-0 w-full h-16 px-10 bg-white bg-opacity-75">
         <Link to="/">
-          <div className="text-4xl font-bold text-indigo-600">
+          <div className="text-4xl font-bold text-indigo-600 hidden md:block">
             <span className="text-blue-500">K</span>
             <span className="text-green-500">a</span>
             <span className="text-red-500">n</span>
@@ -38,6 +38,10 @@ export default function Layout({ children, page }) {
           >
             Users
           </Link>
+        </div>
+        <div className="ml-auto flex items-center text-purple-500">
+          <img src="/redux.svg" alt="Logo" className="h-12 w-auto " />
+          <b>Redux</b>
         </div>
       </div>
       {children}
