@@ -27,11 +27,19 @@ export default function Project({ project }) {
   // Convert the dueDate to a moment object
   const dueDateMoment = moment(project.dueDate);
 
+  // Set the time of the dueDate to 11:59 PM of the same day
+  const endOfDay = dueDateMoment
+    .clone()
+    .endOf("day")
+    .hour(23)
+    .minute(59)
+    .second(59);
+
   // Get the current date as a moment object
   const currentDate = moment();
 
   // Compare the dueDate with the current date
-  const isPastDue = dueDateMoment.isBefore(currentDate);
+  const isPastDue = endOfDay.isBefore(currentDate);
   return (
     <>
       <div
@@ -129,12 +137,16 @@ export default function Project({ project }) {
               </svg>
               <span className="ml-1 leading-none">
                 {isPastDue ? (
-                  <Moment format="DD-MM-YY" className="text-red-500">
-                    {project?.dueDate}
-                  </Moment>
+                  <span className="text-red-500 space-x-1 ">
+                    <Moment format="DD-MM-YY" className="text-red-500">
+                      {project?.dueDate}
+                    </Moment>
+                    <span>(Expired)</span>
+                  </span>
                 ) : (
                   <span>
-                    Ends <Moment fromNow>{project?.dueDate}</Moment>
+                    Ends in{" "}
+                    <Moment format="DD-MM-YY">{project?.dueDate}</Moment>
                   </span>
                 )}
               </span>
